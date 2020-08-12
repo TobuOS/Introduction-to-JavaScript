@@ -154,19 +154,26 @@ console.log(ftConverter(5))
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  function annoyingSong(number){
-      if (number <= 99 && number > 1){
-        console.log((number) 'bottles of soda on the wall, '(number) 'bottles of soda, take one down pass it around '(number - 1)' bottles of soda on the wall')
-        number--;}
-        else if (number === 1){
-            return 'I think you can sing this last one buddy'
-        }
-      }
+function annoyingSong(num) {
+  let i = num;
+  let thing = 'bottles';
 
-  
+  for (i; i > 0; i--) {
+    if (i === 1) {
+      thing = 'bottle';
+    }
 
-console.log(annoyingSong(99))
+    let line1 = `${i} ${thing} of soda on the wall, ${i} ${thing} of soda.`;
+    let line2 = `Take one down, pass it around, ${i - 1} bottles soda on the wall`;
 
+    if ((i - 1) === 1) {
+      line2 = line2.replace('bottles', 'bottle');
+    }
+
+    console.log(`${line1}\n${line2}\n`);
+  } 
+}
+console.log(annoyingSong(99));
 
 /************************************************************** Task 7 **************************************************************/
 //Grade Calculator
@@ -176,9 +183,25 @@ console.log(annoyingSong(99))
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
-  
+  function myGrade(num){
+      if(num >=90 && num <= 100){
+          return 'You got an A!'
+      }
+      if(num >=80 && num <= 89){
+          return 'You got a B!'
+      }
+      if (num >=70 && num <= 79){
+          return 'You got a C! Study!'
+      }
+      if(num >= 60 && num <= 69){
+          return 'You got a D...'
+      }
+      if(num <=59){
+          return 'Have you even picked up a book? You Failed man.'
+      }
+  }
 
-  
+    console.log(myGrade(55))
   
 
 /************************************************************** Stretch **************************************************************/
