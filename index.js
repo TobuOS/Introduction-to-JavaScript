@@ -1,33 +1,53 @@
 /************************************************************** Task 1: Warm-up! **************************************************************/
 //Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
+let votingAge = 19;
+
+console.log(votingAge > 18)
 
 
 
 
 
 //Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
+let a = 3;
 
+let b = 2;
+
+if ( a > b) {
+    a = b;
+}
+console.log('the value of a is now', a)
 
 
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
+var y = "1999"
 
+Number(y)
+
+
+console.log(y)
 
 
 
 
 //Task d: Write a function to multiply a*b 
+function multiply(a,b){
+    return a * b;
+}
 
-
-
+console.log(multiply(7,13))
 
 
 /************************************************************** Task 2 **************************************************************/
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
+function ageInDogYears(age) {
+    return age * 7;
+}
 
-
+console.log(ageInDogYears(23))
 
 
 
@@ -48,7 +68,30 @@
 // 7 - 12 months 4% of their body weight
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-  
+  function recommendedFeeding(weight,age){
+      if (age >= 1) {
+          if (weight <= 5){
+              return weight * .05;
+          } else if (weight >= 6 && weight <= 10){
+              return weight * .04
+          } else if (weight >=11 && weight <= 15){
+              return weight * .03
+          } else if (weight > 15){
+              return weight * .02
+          }
+        } else {
+            if (age >= .166 && age <= .332){
+                return weight * .10;
+            } else if (age >= .332 && age <= .581){
+                return weight * .05
+            } else if (age >= .581 && age <= 1){
+                return weight * .04
+            }
+        }
+
+    }
+
+    console.log(recommendedFeeding(15,1))
 
 
 
@@ -60,20 +103,50 @@
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
+    function letsPlay(userChoice){
+        let computerOptions = ['rock','paper','scissors']
+        let computerChoice = [ Math.floor(Math.random() * 3)]
+        if (computerChoice === userChoice){
+            return 'you both suck'
+        } 
+        if (computerChoice === 'rock'){
+            if (userChoice === 'scissors'){
+                return 'really? you lost to a computer?'
+            } return 'you win!'
+        } 
+        if (computerChoice ==='paper'){
+            if (userChoice === 'rock'){
+                return 'big surprise, you lose again.'
+            } return 'you win!'
+        }
+        if (computerChoice === 'scissors'){
+            if (userChoice === 'paper'){
+                return 'you looooose'
+            } return 'winner winner chicken dinner!'
+        }
+
+    }
   
-  
+    console.log(letsPlay('rock'))
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
+function kmConverter(kilometers){
+    return kilometers * .621371
 
+}
 
+console.log(kmConverter(3))
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-  
+function ftConverter(feet){
+    return feet * 30.48
+}
 
+console.log(ftConverter(5))
 
 
 
@@ -81,10 +154,26 @@
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
+function annoyingSong(num) {
+  let i = num;
+  let thing = 'bottles';
 
+  for (i; i > 0; i--) {
+    if (i === 1) {
+      thing = 'bottle';
+    }
 
+    let line1 = `${i} ${thing} of soda on the wall, ${i} ${thing} of soda.`;
+    let line2 = `Take one down, pass it around, ${i - 1} bottles soda on the wall`;
 
+    if ((i - 1) === 1) {
+      line2 = line2.replace('bottles', 'bottle');
+    }
+
+    console.log(`${line1}\n${line2}\n`);
+  } 
+}
+console.log(annoyingSong(99));
 
 /************************************************************** Task 7 **************************************************************/
 //Grade Calculator
@@ -94,9 +183,25 @@
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
-  
+  function myGrade(num){
+      if(num >=90 && num <= 100){
+          return 'You got an A!'
+      }
+      if(num >=80 && num <= 89){
+          return 'You got a B!'
+      }
+      if (num >=70 && num <= 79){
+          return 'You got a C! Study!'
+      }
+      if(num >= 60 && num <= 69){
+          return 'You got a D...'
+      }
+      if(num <=59){
+          return 'Have you even picked up a book? You Failed man.'
+      }
+  }
 
-  
+    console.log(myGrade(55))
   
 
 /************************************************************** Stretch **************************************************************/
